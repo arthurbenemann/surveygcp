@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="org.droidplanner.gcp"
-    android:versionCode="56"
-    android:versionName="1.2.0" >
+    android:versionCode="1"
+    android:versionName="1.0.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -41,7 +41,7 @@
         android:name=".GCPApp"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/placemark_circle_red"
         android:label="@string/app_title" >
 
         <!-- You must insert your own Google Maps for Android API v2 key in here. -->

@@ -66,6 +66,8 @@
                 <data android:mimeType="application/vnd.google-earth.kmz" />
             </intent-filter>
         </activity>
+        <activity android:name=".activitys.SettingsActivity" >
+        </activity>
     </application>
 
 </manifest>

@@ -31,4 +31,9 @@ public class Gcp implements MarkerSource {
 	public void update(Marker markerFromGcp, Context context) {
 		GcpMarker.update(markerFromGcp, this);
 	}
+
+	@Override
+	public String toString() {
+		return coord.toString() + " marked? "+ isMarked;
+	}
 }

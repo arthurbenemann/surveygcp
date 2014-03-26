@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -101,10 +102,12 @@ public class GCPActivity extends Activity implements OnGcpClickListner {
 		String action = intent.getAction();
 		String type = intent.getType();
 		if (Intent.ACTION_VIEW.equals(action) && type != null) {
-			Toast.makeText(this, intent.getData().getPath(), Toast.LENGTH_LONG)
+			String path = intent.getData().getPath();
+			Toast.makeText(this, path, Toast.LENGTH_LONG)
 					.show();
+			Log.d("GCP", "opening file "+path);
 			GcpReader parser = (new GcpReader());
-			boolean fileIsOpen = parser.openGCPFile(intent.getData().getPath());
+			boolean fileIsOpen = parser.openGCPFile(path);
 			if (fileIsOpen) {
 				putListToGcp(parser.gcpList);
 			}

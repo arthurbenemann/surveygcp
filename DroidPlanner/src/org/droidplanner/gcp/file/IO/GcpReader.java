@@ -16,6 +16,7 @@ import org.droidplanner.gcp.gcp.Gcp;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.util.Log;
 import android.util.Xml;
 
 /**
@@ -40,8 +41,8 @@ public class GcpReader implements FileReader {
 
 	private boolean openKML(String fileWithPath) {
 		try {
+			Log.d("GCP", "opening KML file "+fileWithPath);
 			FileInputStream in = new FileInputStream(fileWithPath);
-
 			gcpList = parse(in);
 			in.close();
 		} catch (FileNotFoundException e) {
@@ -59,6 +60,7 @@ public class GcpReader implements FileReader {
 
 	private boolean openKMZ(String fileWithPath) {
 		try {
+			Log.d("GCP", "opening KMZ file "+fileWithPath);
 			ZipInputStream zin = new ZipInputStream(new FileInputStream(
 					fileWithPath));
 			ZipEntry ze;
@@ -103,6 +105,7 @@ public class GcpReader implements FileReader {
 			String name = parser.getName();
 			// Starts by looking for the entry tag
 			if (name.equals("Placemark")) {
+				Log.d("GCP", "Reading Placemark");
 				readPlacemark(parser);
 			}
 		}
@@ -118,6 +121,7 @@ public class GcpReader implements FileReader {
 			}
 			String name = parser.getName();
 			if (name.equals("Point")) {
+				Log.d("GCP", "Reading point");
 				point = readPoint(parser);
 				if (point != null) {
 					gcpList.add(point);
@@ -139,6 +143,8 @@ public class GcpReader implements FileReader {
 			String name = parser.getName();
 			if (name.equals("coordinates")) {
 				point = readCoordinate(parser);
+
+				Log.d("GCP", "read coordinate "+point);
 			} else {
 				skip(parser);
 			}

@@ -3,14 +3,15 @@ package com.droidplanner.activitys;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.droidplanner.R;
-import com.droidplanner.activitys.helpers.SuperActivity;
 import com.droidplanner.dialogs.openfile.OpenFileDialog;
 import com.droidplanner.dialogs.openfile.OpenGcpFileDialog;
 import com.droidplanner.file.IO.GcpReader;
@@ -20,19 +21,16 @@ import com.droidplanner.fragments.markers.MarkerManager.MarkerSource;
 import com.droidplanner.gcp.Gcp;
 import com.google.android.gms.maps.model.LatLng;
 
-public class GCPActivity extends SuperActivity implements OnGcpClickListner {
+public class GCPActivity  extends Activity implements OnGcpClickListner {
 
 	public List<Gcp> gcpList;
 	private GcpMapFragment gcpMapFragment;
 
-	@Override
-	public int getNavigationItem() {
-		return 5;
-	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
 		setContentView(R.layout.activity_gcp);
 
@@ -44,10 +42,13 @@ public class GCPActivity extends SuperActivity implements OnGcpClickListner {
 
 		checkIntent();
 	}
+	
 
+
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.menu_gcp, menu);
-		return true;
+		getMenuInflater().inflate(R.menu.menu, menu);
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override

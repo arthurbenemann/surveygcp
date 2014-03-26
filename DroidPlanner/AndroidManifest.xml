@@ -2,12 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="org.droidplanner.gcp"
-    android:versionCode="1"
-    android:versionName="1.0.0" >
+    android:versionCode="2"
+    android:versionName="1.0.1" >
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="19" />
 
     <permission
         android:name=".permission.MAPS_RECEIVE"
@@ -41,7 +41,7 @@
         android:name=".GCPApp"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
-        android:icon="@drawable/placemark_circle_red"
+        android:icon="@drawable/icon_launcher"
         android:label="@string/app_title" >
 
         <!-- You must insert your own Google Maps for Android API v2 key in here. -->

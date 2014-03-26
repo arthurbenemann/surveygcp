@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.droidplanner"
+    package="org.droidplanner.gcp"
     android:versionCode="56"
     android:versionName="1.2.0" >
 
@@ -49,7 +49,7 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDFsAn5xo-mILEirpcUsF9BU9Vb_yR-Er4" />
 
-        <activity
+        <activity 
             android:name=".activitys.GCPActivity"
             tools:ignore="ExportedActivity" >
             <intent-filter>

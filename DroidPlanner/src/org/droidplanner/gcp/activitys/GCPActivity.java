@@ -22,11 +22,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
-public class GCPActivity  extends Activity implements OnGcpClickListner {
+public class GCPActivity extends Activity implements OnGcpClickListner {
 
 	public List<Gcp> gcpList;
 	private GcpMapFragment gcpMapFragment;
-
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -43,8 +42,6 @@ public class GCPActivity  extends Activity implements OnGcpClickListner {
 
 		checkIntent();
 	}
-	
-
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -91,7 +88,8 @@ public class GCPActivity  extends Activity implements OnGcpClickListner {
 	private void putListToGcp(List<Gcp> list) {
 		gcpList.clear();
 		gcpList.addAll(list);
-		gcpMapFragment.markers.updateMarkers(gcpList, false,getApplicationContext());
+		gcpMapFragment.markers.updateMarkers(gcpList, false,
+				getApplicationContext());
 		gcpMapFragment.zoomToExtents(getGcpCoordinates());
 	}
 
@@ -118,7 +116,8 @@ public class GCPActivity  extends Activity implements OnGcpClickListner {
 	@Override
 	public void onGcpClick(MarkerSource gcp) {
 		((org.droidplanner.gcp.gcp.Gcp) gcp).toogleState();
-		gcpMapFragment.markers.updateMarker(gcp, false,getApplicationContext());
+		gcpMapFragment.markers
+				.updateMarker(gcp, false, getApplicationContext());
 	}
 
 }

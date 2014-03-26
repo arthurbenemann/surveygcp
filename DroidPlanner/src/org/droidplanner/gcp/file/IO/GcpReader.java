@@ -18,7 +18,6 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Xml;
 
-
 /**
  * Class to parse a Kml file, based on the code from
  * http://developer.android.com/training/basics/network-ops/xml.html

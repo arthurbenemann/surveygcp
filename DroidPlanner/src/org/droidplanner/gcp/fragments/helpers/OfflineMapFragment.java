@@ -22,7 +22,7 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.TileOverlay;
 import com.google.android.gms.maps.model.TileOverlayOptions;
 
-public class OfflineMapFragment extends MapFragment{
+public class OfflineMapFragment extends MapFragment {
 
 	public static final String PREF_MAP_TYPE = "pref_map_type";
 
@@ -103,7 +103,7 @@ public class OfflineMapFragment extends MapFragment{
 	private void setupOfflineMapOverlay() {
 		mMap.setMapType(GoogleMap.MAP_TYPE_NONE);
 		TileOverlay tileOverlay = mMap.addTileOverlay(new TileOverlayOptions()
-				                                              .tileProvider(new LocalMapTileProvider()));
+				.tileProvider(new LocalMapTileProvider()));
 		tileOverlay.setZIndex(-1);
 		tileOverlay.clearTileCache();
 	}
@@ -147,7 +147,6 @@ public class OfflineMapFragment extends MapFragment{
 		return getMap() != null;
 	}
 
-	
 	public void onMapTypeChanged() {
 		setupMap();
 	}

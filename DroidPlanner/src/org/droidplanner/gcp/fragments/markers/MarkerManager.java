@@ -32,17 +32,18 @@ public class MarkerManager {
 	public <T> void updateMarkers(List<T> list, boolean draggable,
 			Context context) {
 		for (T object : list) {
-			updateMarker((MarkerSource) object, draggable,context);
+			updateMarker((MarkerSource) object, draggable, context);
 		}
 	}
+
 	public void updateMarker(MarkerSource source, boolean draggable,
-		Context context) {
+			Context context) {
 		if (hashMap.containsValue(source)) {
 			Marker marker = getMarkerFromSource(source);
-			source.update(marker,context);
+			source.update(marker, context);
 			marker.setDraggable(draggable);
 		} else {
-			addMarker(source, draggable,context);
+			addMarker(source, draggable, context);
 		}
 	}
 
@@ -89,6 +90,5 @@ public class MarkerManager {
 	public MarkerSource getSourceFromMarker(Marker marker) {
 		return hashMap.get(marker);
 	}
-
 
 }

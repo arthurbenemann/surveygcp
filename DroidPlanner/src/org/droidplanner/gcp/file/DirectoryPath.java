@@ -4,7 +4,7 @@ import android.os.Environment;
 
 public class DirectoryPath {
 
-    static public String getDroidPlannerPath() {
+	static public String getDroidPlannerPath() {
 		String root = Environment.getExternalStorageDirectory().getPath();
 		return (root + "/DroidPlanner/");
 	}

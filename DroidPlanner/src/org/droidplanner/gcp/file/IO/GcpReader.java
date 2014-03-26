@@ -10,12 +10,12 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.droidplanner.gcp.dialogs.openfile.OpenFileDialog.FileReader;
-import org.droidplanner.gcp.file.DirectoryPath;
 import org.droidplanner.gcp.file.FileList;
 import org.droidplanner.gcp.gcp.Gcp;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.os.Environment;
 import android.util.Log;
 import android.util.Xml;
 
@@ -204,7 +204,8 @@ public class GcpReader implements FileReader {
 
 	@Override
 	public String getPath() {
-		return DirectoryPath.getGCPPath();
+		String root = Environment.getExternalStorageDirectory().getPath();
+		return root + "/DroidPlanner/GCP/";
 	}
 
 	@Override
